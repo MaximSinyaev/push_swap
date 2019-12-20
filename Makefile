@@ -81,7 +81,7 @@ clean:
 	@make -C ./ft_printf clean
 
 fclean: clean
-	@echo $(PURPLE)">>> Deleting ft_ls..."$(NOCOLOR)
+	@echo $(PURPLE)">>> Deleting $(NAME)..."$(NOCOLOR)
 	rm -f $(LIBFT)
 	rm -f $(NAME) $(NAME_CHECKER)
 	@echo $(GREEN)">>> $(NAME) deleted"$(NOCOLOR)'\n'
