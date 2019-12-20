@@ -20,13 +20,17 @@ static int	check_arg(char *arg)
 	char	*double_convert;
 	char	*ptr;
 	int		i;
+	int		len;
 
 	ptr = arg;
 	i = -1;
+	len = ft_strlen(arg);
+	if (len > 19)
+		handle_error();
 	while (arg[++i])
 		if (!ft_isdigit(arg[i]))
 		{
-			if (i == 0 && (*arg == '+' || *arg == '-'))
+			if (i == 0 && (*arg == '+' || *arg == '-') && len > 1 && len < 19)
 				continue ;
 			handle_error();
 		}

@@ -65,7 +65,7 @@ int		main(int ac, char **av)
 		read_args_from_file(&opts, a);
 	else
 		read_args(opts.start_pos, ac, av, &(a->top));
-	if (!a->top || ((a->top) && !a->top->next) || check_stacks(a->top, b->top))
+	if (!a->top)
 		exit(0);
 	print_initial_stacks(a->top, b->top, opts.view);
 	while (get_next_line(0, &line))
