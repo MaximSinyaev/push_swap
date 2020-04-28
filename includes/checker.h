@@ -14,4 +14,6 @@
 # define CHECKER_H
 # define PRINT_FLAG 0
 
+#include "libft.h"
+
 #endif

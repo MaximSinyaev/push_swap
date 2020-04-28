@@ -55,27 +55,28 @@ int		main(int ac, char **av)
 {
 	t_stack_ptr *a;
 	t_stack_ptr *b;
-	t_opts		opts;
+	t_opts		*opts;
 	char		*line;
 
 	a = ft_memalloc(sizeof(*a));
 	b = ft_memalloc(sizeof(*b));
-	opts.start_pos = ft_getopt(ac, av, &opts);
-	if (opts.file)
-		read_args_from_file(&opts, a);
+	opts = ft_memalloc(sizeof(*opts));
+	opts->start_pos = ft_getopt(ac, av, opts);
+	if (opts->file)
+		read_args_from_file(opts, a);
 	else
-		read_args(opts.start_pos, ac, av, &(a->top));
+		read_args(opts->start_pos, ac, av, &(a->top));
 	if (!a->top)
 		exit(0);
-	print_initial_stacks(a->top, b->top, opts.view);
+	print_initial_stacks(a->top, b->top, opts->view);
 	while (get_next_line(0, &line))
 	{
 		read_instructions(&(a->top), &(b->top), &line);
-		if (opts.view)
+		if (opts->view)
 			print_stacks_with_operations((a->top), (b->top), line);
 		free(line);
 	}
-	print_result(opts, a, b);
+	print_result(*opts, a, b);
 	clean_stack_ptrs(&a, &b);
 	return (0);
 }

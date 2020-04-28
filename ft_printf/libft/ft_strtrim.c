@@ -12,13 +12,13 @@
 
 #include "libft.h"
 
-static int	isspace(char c)
-{
-	if (c == ' ' || c == '\n' || c == '\t'
-		|| c == '\0')
-		return (1);
-	return (0);
-}
+//static int	ft_isspace(char c)
+//{
+//	if (c == ' ' || c == '\n' || c == '\t'
+//		|| c == '\0')
+//		return (1);
+//	return (0);
+//}
 
 char		*ft_strtrim(const char *s)
 {
@@ -29,12 +29,12 @@ char		*ft_strtrim(const char *s)
 	if (!s)
 		return (NULL);
 	begin = s;
-	while (*begin != '\0' && isspace(*begin))
+	while (*begin != '\0' && ft_isspace(*begin))
 		begin++;
 	len = ft_strlen(begin);
 	if (len == 0)
 		return (ft_strnew(1));
-	while (isspace(begin[len - 1]) && len > 0)
+	while (ft_isspace(begin[len - 1]) && len > 0)
 		len--;
 	if (!(clear_copy = ft_strnew(len)))
 		return (NULL);

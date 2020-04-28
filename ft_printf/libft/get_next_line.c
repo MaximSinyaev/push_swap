@@ -14,7 +14,7 @@
 #include "libft.h"
 
 /*
-** Protected stlen whic checks pointer
+** Protected stlen which checks pointer
 */
 
 static size_t	ft_strlen_p(char *s)
@@ -49,10 +49,8 @@ static int		function(char **tmp, char **file_line, int ret, char **line)
 {
 	int		i;
 	size_t	len;
-	int		error;
 
 	i = 0;
-	error = 0;
 	ft_strdel(file_line);
 	len = ft_strlen_p(*tmp);
 	while ((*tmp)[i] != SEPARATOR && (size_t)i < len)

@@ -78,17 +78,18 @@ int				main(int ac, char **av)
 {
 	t_stack_ptr		*a;
 	t_stack_ptr		*b;
-	t_opts			opts;
+	t_opts			*opts;
 
 	a = ft_memalloc(sizeof(*a));
 	b = ft_memalloc(sizeof(*b));
-	opts.start_pos = ft_getopt(ac, av, &opts);
-	if (opts.file)
-		read_args_from_file(&opts, a);
+    opts = ft_memalloc(sizeof(*opts));
+	opts->start_pos = ft_getopt(ac, av, opts);
+	if (opts->file)
+		read_args_from_file(opts, a);
 	else
-		read_args(opts.start_pos, ac, av, &(a->top));
-	if (opts.view)
-		handle_error_args(&opts, &a, &b);
+		read_args(opts->start_pos, ac, av, &(a->top));
+	if (opts->view)
+		handle_error_args(opts, &a, &b);
 	if (!a->top || ((a->top) && !a->top->next) || check_stacks(a->top, b->top))
 		exit(0);
 	refresh_stacks_info(a, b);

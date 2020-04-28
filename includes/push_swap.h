@@ -16,9 +16,15 @@
 # define PRINT_FLAG 1
 
 # include "ft_printf.h"
+# include "libft.h"
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
+
+
+# ifndef INT32_MAX
+#  define INT32_MAX __INT32_MAX__
+# endif
 
 typedef struct		s_stack
 {

@@ -15,10 +15,8 @@
 char	*ft_strchr(const char *s, int c)
 {
 	int		i;
-	char	ch;
 
 	i = -1;
-	ch = c;
 	while (s[++i])
 	{
 		if (s[i] == c)

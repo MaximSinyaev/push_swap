@@ -1,8 +1,8 @@
-#!/bin/zsh
+#!/bin/bash
 # $1 - from value
 # $2 - till value
 
-if (( $# == 0 )); then
+if (( $# == 1 )); then
   begin=0
   end=100
 else

@@ -1,6 +1,6 @@
 .PHONY: all clean install uninstall
 
-FLAGS = -Wall -Wextra -Werror #-I./libft/includes/ -I./includes/#-L./libft/ -lft
+FLAGS = -Wall -Wextra #-I./libft/includes/ -I./includes/#-L./libft/ -lft
 
 FILES = convert.c \
       ft_printf.c \

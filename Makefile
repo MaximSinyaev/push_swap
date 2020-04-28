@@ -43,7 +43,7 @@ OBJS = $(addprefix $(SRC_PATH), $(addsuffix .o, $(FUNCS)))
 OBJS_PS = $(addprefix $(SRC_PATH), $(addsuffix .o, $(FUNCS_PS)))
 OBJS_CHECKER = $(addprefix $(SRC_PATH), $(addsuffix .o, $(FUNCS_CHECKER)))
 SRC_PATH = ./src/
-INCLUDE_PATH = ./includes -I./ft_printf/includes
+INCLUDE_PATH = ./includes -I./ft_printf/includes -I./ft_printf/libft/includes
 CFLAGS = -g -Wall -Wextra -Werror -I$(INCLUDE_PATH)
 OPT = -ofast
 LIBFT = ft_printf/libftprintf.a
@@ -68,11 +68,11 @@ $(OBJS_CHECKER): %.o: %.c
 	gcc $(OPT) -c $(CFLAGS) $^ -o $@
 
 $(NAME): $(LIBFT) $(OBJS) $(OBJS_PS)
-	gcc $(OPT) $(CFLAGS) $(LIBS) $(OBJS_PS) $(OBJS) -o $(NAME)
+	gcc $(OPT) $(CFLAGS) $(OBJS_PS) $(OBJS) -o $(NAME) $(LIBS)
 	@echo $(GREEN)">>>Sucess! $(NAME) installed"$(NOCOLOR)'\n'
 
 $(NAME_CHECKER): $(LIBFT) $(OBJS) $(OBJS_CHECKER)
-	gcc $(OPT) $(CFLAGS) $(LIBS) $(OBJS_CHECKER) $(OBJS) -o $(NAME_CHECKER)
+	gcc $(OPT) $(CFLAGS) $(OBJS_CHECKER) $(OBJS) $(LIBS) -o $(NAME_CHECKER)
 	@echo $(GREEN)">>>Sucess! $(NAME_CHECKER) installed"$(NOCOLOR)'\n'
 
 clean:
